@@ -5,25 +5,32 @@ function getComputerChoice() {
 
 const computerSelection = getComputerChoice;
  
-function play(playerSelection, computerSelection) {
+function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === computerSelection) {
         return "It's a tie!";
-    } else if (playerSelection.toLowerCase() == "rock") {
-        if (computerSelection == "paper") {
+    } else if (playerSelection.toLowerCase() === "rock") {
+        if (computerSelection === "paper") {
             return "You lose! Paper beats rock!";
         } else {
             return "You win! Rock beats scissors!"; }
-    } else if (playerSelection.toLowerCase() == "paper") {
-        if (computerSelection == "rock") {
+    } else if (playerSelection.toLowerCase() === "paper") {
+        if (computerSelection === "rock") {
             return "You win! Paper beats rock!";
         } else {
             return "You lose! Scissors beats paper!";}
-    } else if (playerSelection.toLowerCase() == "scissors") {
-        if (computerSelection == "paper") {
+    } else if (playerSelection.toLowerCase() === "scissors") {
+        if (computerSelection === "paper") {
             return "You win! Scissors beats paper!"
         } else {
             return "You lose! Rock beats scissors!"
         }
     }
 
+}
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        playerSelection = prompt("Input 'rock' 'paper' or 'scissors'");
+        playRound(playerSelection, computerSelection);
+    }
 }
