@@ -11,39 +11,41 @@ let compWins = 0;
  
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() === computerSelection) {
-        result = "It's a tie!";
+        result = "tie";
     } else if (playerSelection.toLowerCase() === "rock") {
         if (computerSelection === "paper") {
             result = "loss";
-            compWins++;
             return "You lose! Paper beats rock!";
         } else {
             result = "win";
-            playerWins++; 
             return "You win! Rock beats scissors!";
         }
     } else if (playerSelection.toLowerCase() === "paper") {
         if (computerSelection === "rock") {
             result = "win";
-            playerWins++;
             return "You win! Paper beats rock!";
         } else {
             result = "loss";
-            compWins++; 
             return "You lose! Scissors beats paper!";
         }
     } else if (playerSelection.toLowerCase() === "scissors") {
         if (computerSelection === "paper") {
             result = "win";
-            playerWins++;
             return "You win! Scissors beats paper!";
         } else {
             result = "loss";
-            compWins++;
             return "You lose! Rock beats scissors!";
         }
     }
 
+    if (result == "loss") {
+        compWins++;
+    } else if (result == "win") {
+        playerWins++;
+    } else {
+        playerWins = playerWins;
+        compWins = compWins;
+    }
 }
 
 function playGame() {
@@ -51,4 +53,10 @@ function playGame() {
         playerSelection = prompt("Input 'rock' 'paper' or 'scissors'");
         playRound(playerSelection, computerSelection);
     }
+    if (playerWins > compWins) {
+        console.log("You won!");
+    } else {
+        console.log("You loss!");
+    }
+    console.log(`You have ${playerWins} wins, and the computer has ${compWins} wins!`);
 }
