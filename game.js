@@ -73,9 +73,8 @@ function playGame() {
     let userSelection = "";
     for (let i=0; i<5; i++) {
         computerSelection = getComputerChoice(choices);
-        console.log(computerSelection);
         userSelection = prompt("Input rock paper or scissors");
-        console.log(`You selected ${userSelection}, and the computer selection ${computerSelection}`);
+        console.log(`You selected ${userSelection}, and the computer selected ${computerSelection}`);
         playRound(userSelection, computerSelection);
         console.log(result);
         test(result);
