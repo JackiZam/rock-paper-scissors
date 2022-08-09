@@ -74,13 +74,13 @@ function playGame() {
     for (let i=0; i<5; i++) {
         computerSelection = getComputerChoice(choices);
         userSelection = prompt("Input rock paper or scissors");
-        console.log(`You selected ${userSelection}, and the computer selected ${computerSelection}`);
+        console.log(`You selected ${userSelection}, and the computer selected ${computerSelection}.`);
         playRound(userSelection, computerSelection);
         console.log(result);
         test(result);
     }
 
-    console.log(`You have ${playerWins} wins, and the computer has ${compWins} wins!`);
+    console.log(`You have ${playerWins} win(s), and the computer has ${compWins} win(s)!`);
 
     if (playerWins == compWins) {
         console.log("It's a tie!");
