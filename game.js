@@ -13,30 +13,30 @@ function getComputerChoice(choices) {
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection.toLowerCase() == computerSelection) {
-        result = "tie";
+        result = "It's a tie!";
         return "It's a tie!";
     } else if (playerSelection.toLowerCase() == "rock") {
         if (computerSelection == "paper") {
-            result = "loss";
+            result = "You lost.";
             return "You lose! Paper beats rock!";
         } else {
-            result = "win";
+            result = "You won!";
             return "You win! Rock beats scissors!";
         }
     } else if (playerSelection.toLowerCase() == "paper") {
         if (computerSelection == "rock") {
-            result = "win";
+            result = "You won!";
             return "You win! Paper beats rock!";
         } else {
-            result = "loss";
+            result = "You lost.";
             return "You lose! Scissors beats paper!";
         }
     } else if (playerSelection.toLowerCase() == "scissors") {
         if (computerSelection == "paper") {
-            result = "win";
+            result = "You won!";
             return "You win! Scissors beats paper!";
         } else {
-            result = "loss";
+            result = "You lost.";
             return "You lose! Rock beats scissors!";
         }
     }
@@ -51,9 +51,9 @@ console.log(result); */
 
 /* this counter section vv needs to go after the function call */
 function test(result) {
-    if (result == "loss") {
+    if (result == "You lost.") {
         compWins = compWins + 1;
-    } else if (result == "win") {
+    } else if (result == "You won!") {
         playerWins = playerWins + 1;
     } else {
         playerWins = playerWins;
