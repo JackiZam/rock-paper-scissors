@@ -43,13 +43,8 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-let computerSelection = ""; /* getComputerChoice(choices);
-console.log(computerSelection); */
+let computerSelection = ""; 
 
-/*console.log(playRound("paper", computerSelection));
-console.log(result); */
-
-/* this counter section vv needs to go after the function call */
 function test(result) {
     if (result == "You lost.") {
         compWins = compWins + 1;
@@ -60,14 +55,6 @@ function test(result) {
         compWins = compWins;
     }
 }
-
- // test(result);
-
-/* v uncomment when the playGame function includes the loop to test
-console.log(playerWins);
-console.log(compWins); */
-
-
 
 function playGame() {
     let userSelection = "";
@@ -80,7 +67,7 @@ function playGame() {
         test(result);
     }
 
-    console.log(`You have ${playerWins} win(s), and the computer has ${compWins} win(s)!`);
+    console.log(`You had ${playerWins} win(s), and the computer had ${compWins} win(s)!`);
 
     if (playerWins == compWins) {
         console.log("It's a tie!");
