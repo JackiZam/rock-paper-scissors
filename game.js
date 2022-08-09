@@ -43,8 +43,8 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-const computerSelection = getComputerChoice(choices);
-console.log(computerSelection);
+let computerSelection = ""; /* getComputerChoice(choices);
+console.log(computerSelection); */
 
 /*console.log(playRound("paper", computerSelection));
 console.log(result); */
@@ -72,12 +72,16 @@ console.log(compWins); */
 function playGame() {
     let userSelection = "";
     for (let i=0; i<5; i++) {
+        computerSelection = getComputerChoice(choices);
+        console.log(computerSelection);
         userSelection = prompt("Input rock paper or scissors");
         console.log(`You selected ${userSelection}, and the computer selection ${computerSelection}`);
         playRound(userSelection, computerSelection);
         console.log(result);
         test(result);
     }
+
+    console.log(`You have ${playerWins} wins, and the computer has ${compWins} wins!`);
 
     if (playerWins == compWins) {
         console.log("It's a tie!");
@@ -86,7 +90,6 @@ function playGame() {
     } else {
         console.log("You lost!");
     }
-    console.log(`You have ${playerWins} wins, and the computer has ${compWins} wins!`);
 }
 
 playGame();
