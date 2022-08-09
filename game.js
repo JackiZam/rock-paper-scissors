@@ -63,21 +63,29 @@ function test(result) {
 
  // test(result);
 
+/* v uncomment when the playGame function includes the loop to test
 console.log(playerWins);
-console.log(compWins);
+console.log(compWins); */
 
 
 
 function playGame() {
-    let userSelection = prompt("Input rock paper or scissors");
-    playRound(userSelection, computerSelection);
-    test(result);
+    let userSelection = "";
+    for (let i=0; i<5; i++) {
+        userSelection = prompt("Input rock paper or scissors");
+        console.log(`You selected ${userSelection}, and the computer selection ${computerSelection}`);
+        playRound(userSelection, computerSelection);
+        console.log(result);
+        test(result);
+    }
 
-    /* if (playerWins > compWins) {
+    if (playerWins == compWins) {
+        console.log("It's a tie!");
+    } else if (playerWins > compWins) {
         console.log("You won!");
     } else {
         console.log("You lost!");
-    } */
+    }
     console.log(`You have ${playerWins} wins, and the computer has ${compWins} wins!`);
 }
 
