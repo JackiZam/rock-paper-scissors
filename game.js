@@ -7,7 +7,7 @@ userWins.textContent = `${numUserWins}`;
 const compWins = document.createElement('p');
 compWins.textContent = `${numCompWins}`;
 
-const userOptions = document.querySelectorAll('button');
+const userOptions = document.querySelectorAll('.userOption');
 const computerChoice = document.createElement('p');
 const roundResults = document.createElement('p');
 const gameResults = document.createElement('p');
