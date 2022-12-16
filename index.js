@@ -1,6 +1,6 @@
 const playButton = document.querySelector('.play');
-playButton.addEventListener('scrollOver', () => {
-
+playButton.addEventListener('click', () => {
+    location.href = './gameScreen.html';
 });
 
 
