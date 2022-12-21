@@ -5,12 +5,12 @@ body {
 }
 
 .infoButton {
-    float: right;
     height: 50px;
     width: 50px;
     border-radius: 50%;
     font-size: 20px;
-    margin: 18px;
+    margin-top: 18px;
+    margin-left: 18px;
 }
 
 .landingScreen {
@@ -62,8 +62,8 @@ img {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    padding-top: 60px;
-    padding-bottom: 45px;
+    padding-top: 0px;
+    padding-bottom: 25px;
 }
 
 .userTitle {
@@ -102,8 +102,8 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
 }
 
 .userOptions {
@@ -139,10 +139,7 @@ img {
     width: 250px;
 }
 
-
 .userOption {
-    /* margin-left: 50px;
-    margin-right: 50px; */
     border: none;
     transition: all 0.2s ease-in-out;
 }
