@@ -8,9 +8,23 @@
 </head>
 <body>
     <div class="gameScreen">
-        <button id="Rock" class="userOption">Rock</button>
-        <button id="Paper" class="userOption">Paper</button>
-        <button id="Scissors" class="userOption">Scissors</button>
+        <div class="top">
+            <div>
+                <p class="userTitle">You</p>
+                <p class="userScoreBox"></p>
+            </div>
+            <div>
+                <p class="computerTitle">Computer</p>
+                <p class="compScoreBox"></p>
+            </div>
+        </div>
+        <p class="computerChoice"></p>
+        <div class="userOptions">
+            <button id="Rock" class="userOption rock"></button>
+            <button id="Paper" class="userOption paper"></button>
+            <button id="Scissors" class="userOption scissors"></button>
+        </div>
+        <p class="roundResults"></p>
     </div>
     <div class="gameOverScreen"></div>
 </body>

@@ -1,15 +1,15 @@
 let choices = ['Rock', 'Paper', 'Scissors'];
 let numUserWins = 0, numCompWins = 0;
 
-const userWins = document.createElement('p');
+const userWins = document.querySelector('.userScoreBox');
 userWins.textContent = `${numUserWins}`;
 
-const compWins = document.createElement('p');
+const compWins = document.querySelector('.compScoreBox');
 compWins.textContent = `${numCompWins}`;
 
 const userOptions = document.querySelectorAll('.userOption');
-const computerChoice = document.createElement('p');
-const roundResults = document.createElement('p');
+const computerChoice = document.querySelector('.computerChoice');
+const roundResults = document.querySelector('.roundResults');
 const gameResults = document.createElement('p');
 const gameOverSection = document.querySelector('.gameOverScreen');
 const gameOverAlert = document.createElement('p');
@@ -23,7 +23,6 @@ function getComputerChoice(choices) {
 function playRound(playerSelection) {
     computerSelection = getComputerChoice(choices);
     computerChoice.textContent = `The computer chose ${computerSelection.toLowerCase()}.`;
-    document.body.appendChild(computerChoice);
     if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
         roundResults.textContent = "It's a tie. Go again!";
 
@@ -61,9 +60,6 @@ function playRound(playerSelection) {
     
     userWins.textContent = `${numUserWins}`;
     compWins.textContent = `${numCompWins}`;
-    document.body.appendChild(userWins);
-    document.body.appendChild(compWins);
-    document.body.appendChild(roundResults);
     
     if (numCompWins == 5 || numUserWins == 5) {
         gameOver();
