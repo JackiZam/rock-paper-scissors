@@ -9,6 +9,7 @@ compWins.textContent = `${numCompWins}`;
 
 const userOptions = document.querySelectorAll('.userOption');
 const computerChoice = document.querySelector('.computerChoice');
+const userChoice = document.querySelector('.userChoice');
 const roundResults = document.querySelector('.roundResults');
 const gameResults = document.querySelector('.gameResults');
 gameResults.style.fontSize = "x-large";
@@ -31,6 +32,7 @@ function getComputerChoice(choices) {
 function playRound(playerSelection) {
     computerSelection = getComputerChoice(choices);
     computerChoice.textContent = `The computer chose ${computerSelection.toLowerCase()}.`;
+    userChoice.textContent = `You chose ${playerSelection.toLowerCase()}.`;
     if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
         roundResults.textContent = "It's a tie. Go again!";
 
