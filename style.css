@@ -60,6 +60,9 @@ img {
 /* GameScreen Page */
 .gameScreen {
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
 }
 
 .top {
@@ -175,11 +178,12 @@ img {
 
 /* GameOver Pop Up */
 .gameOverScreen {
-    position: fixed;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
     background-color: #9dd6f0;
     border-radius: 20px;
     height: 450px;
