@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./game.js" defer></script>
+</head>
+<body>
+    <div class="gameScreen">
+        <button class="infoButton">i</button>
+        <div class="top">
+            <div>
+                <p class="userTitle">You</p>
+                <p class="userScoreBox"></p>
+            </div>
+            <div>
+                <p class="computerTitle">Computer</p>
+                <p class="compScoreBox"></p>
+            </div>
+        </div>
+        <p class="computerChoice"></p>
+        <p class="userChoice"></p>
+        <div class="gameOverScreen">
+            <button class="closeButton">x</button>
+            <div class="gameOverContent">
+                <h3 class="gameOver">Game Over!</h3>
+                <p class="gameResults"></p>
+                <button class="restart">New Game</button>
+            </div>
+        </div>
+        <div class="userOptions">
+            <button id="Rock" class="userOption rock"></button>
+            <button id="Paper" class="userOption paper"></button>
+            <button id="Scissors" class="userOption scissors"></button>
+        </div>
+        <p class="roundResults"></p>
+    </div>
+</body>
+</html>

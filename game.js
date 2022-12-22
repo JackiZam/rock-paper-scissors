@@ -1,81 +1,116 @@
-choices = ['rock', 'paper', 'scissors'];
+let choices = ['Rock', 'Paper', 'Scissors'];
+let numUserWins = 0, numCompWins = 0;
+
+const userWins = document.querySelector('.userScoreBox');
+userWins.textContent = `${numUserWins}`;
+
+const compWins = document.querySelector('.compScoreBox');
+compWins.textContent = `${numCompWins}`;
+
+const userOptions = document.querySelectorAll('.userOption');
+const computerChoice = document.querySelector('.computerChoice');
+const userChoice = document.querySelector('.userChoice');
+const roundResults = document.querySelector('.roundResults');
+const gameResults = document.querySelector('.gameResults');
+gameResults.style.fontSize = "x-large";
+const gameOverSection = document.querySelector('.gameOverScreen');
+const gameOverAlert = document.createElement('p');
+const closeButton = document.querySelector('.closeButton');
+const restartButton = document.querySelector('.restart');
+
+const infoButton = document.querySelector('.infoButton');
+infoButton.addEventListener('click', () => {
+    window.open("./instructions.html", "_self");
+});
 
 function getComputerChoice(choices) {
     let indexPos = [Math.floor(Math.random() * choices.length)];
     let choice = choices[indexPos];
     return choice;
- }
-
- let result = "";
- let playerWins = 0;
- let compWins = 0;
-
-function playRound(playerSelection, computerSelection) {
-
-    if (playerSelection.toLowerCase() == computerSelection) {
-        result = "It's a tie!";
-        return "It's a tie!";
-    } else if (playerSelection.toLowerCase() == "rock") {
-        if (computerSelection == "paper") {
-            result = "You lost.";
-            return "You lose! Paper beats rock!";
-        } else {
-            result = "You won!";
-            return "You win! Rock beats scissors!";
-        }
-    } else if (playerSelection.toLowerCase() == "paper") {
-        if (computerSelection == "rock") {
-            result = "You won!";
-            return "You win! Paper beats rock!";
-        } else {
-            result = "You lost.";
-            return "You lose! Scissors beats paper!";
-        }
-    } else if (playerSelection.toLowerCase() == "scissors") {
-        if (computerSelection == "paper") {
-            result = "You won!";
-            return "You win! Scissors beats paper!";
-        } else {
-            result = "You lost.";
-            return "You lose! Rock beats scissors!";
-        }
-    }
-
 }
 
-let computerSelection = ""; 
+function playRound(playerSelection) {
+    computerSelection = getComputerChoice(choices);
+    computerChoice.textContent = `The computer chose ${computerSelection.toLowerCase()}.`;
+    userChoice.textContent = `You chose ${playerSelection.toLowerCase()}.`;
+    if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+        roundResults.textContent = "It's a tie. Go again!";
 
-function test(result) {
-    if (result == "You lost.") {
-        compWins = compWins + 1;
-    } else if (result == "You won!") {
-        playerWins = playerWins + 1;
-    } else {
-        playerWins = playerWins;
-        compWins = compWins;
+    }
+    else if (playerSelection === 'Rock') {
+        if (computerSelection === 'Paper') {
+            numCompWins += 1;
+            roundResults.textContent = `${computerSelection} beats ${playerSelection.toLowerCase()}. You lost!`;
+        }
+        else {
+            numUserWins += 1;
+            roundResults.textContent = `${playerSelection} beats ${computerSelection.toLowerCase()}. You won!`;
+        }
+    }
+    else if (playerSelection === 'Paper') {
+        if (computerSelection === 'Rock') {
+            numUserWins += 1;
+            roundResults.textContent = `${playerSelection} beats ${computerSelection.toLowerCase()}. You won!`;
+        }
+        else {
+            numCompWins += 1;
+            roundResults.textContent = `${computerSelection} beat ${playerSelection.toLowerCase()}. You lost!`;
+        }
+    }
+    else if (playerSelection === 'Scissors') {
+        if (computerSelection === 'Paper') {
+            numUserWins += 1;
+            roundResults.textContent = `${playerSelection} beat ${computerSelection.toLowerCase()}. You won!`;
+        }
+        else {
+            numCompWins += 1;
+            roundResults.textContent = `${computerSelection} beats ${playerSelection.toLowerCase()}. You lost!`;
+        }
+    }
+    
+    userWins.textContent = `${numUserWins}`;
+    compWins.textContent = `${numCompWins}`;
+    
+    if (numCompWins == 5 || numUserWins == 5) {
+        gameOver();
+        return;
     }
 }
 
 function playGame() {
-    let userSelection = "";
-    for (let i=0; i<5; i++) {
-        computerSelection = getComputerChoice(choices);
-        userSelection = prompt("Input rock paper or scissors");
-        console.log(`You selected ${userSelection}, and the computer selected ${computerSelection}.`);
-        playRound(userSelection, computerSelection);
-        console.log(result);
-        test(result);
-    }
+    numCompWins = 0;
+    numUserWins = 0;
+    gameOverSection.style.visibility = 'hidden';
+    userOptions.forEach((button) => {
+        button.addEventListener('click', function(e) {
+            playRound(button.id);
+        });
+    });
+}
 
-    console.log(`You had ${playerWins} win(s), and the computer had ${compWins} win(s)!`);
 
-    if (playerWins == compWins) {
-        console.log("It's a tie!");
-    } else if (playerWins > compWins) {
-        console.log("You won!");
-    } else {
-        console.log("You lost!");
+function gameOver() {
+    gameOverSection.style.visibility = 'visible';
+    if (numUserWins > numCompWins) {
+        gameResults.textContent = "Congrats! You win!";
     }
+    else {
+        gameResults.textContent = "You lose!";
+    }
+    closeButton.addEventListener('click', () => {
+        gameOverSection.style.visibility = 'hidden';
+        userOptions.forEach((button) => {
+            button.disabled = true;
+        });
+    });
+    restartButton.addEventListener('click', function(e) {
+        numCompWins = 0;
+        numUserWins = 0;
+        userWins.textContent = `${numUserWins}`;
+        compWins.textContent = `${numCompWins}`;
+        gameOverSection.style.visibility = 'hidden';
+    })
+    return;
 }
 
 playGame();
