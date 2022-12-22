@@ -15,6 +15,11 @@ body {
     color: aliceblue;
 }
 
+.infoButton:hover {
+    color: rgb(31, 106, 172);
+    box-shadow: 0 5px 15px rgba(7, 8, 63, 0.8);
+}
+
 .landingScreen {
     display: flex;
     flex-direction: column;
@@ -174,6 +179,7 @@ img {
     flex-direction: column;
     flex: 1 1 auto;
     align-items: center;
+    padding-bottom: 75px;
 }
 
 /* GameOver Pop Up */
@@ -218,6 +224,11 @@ img {
     color: aliceblue;
 }
 
+.closeButton:hover {
+    color: rgb(31, 106, 172);
+    box-shadow: 0 5px 15px rgba(7, 8, 63, 0.8);
+}
+
 .restart {
     height: 50px;
     width: auto;
@@ -227,6 +238,11 @@ img {
     border-radius: 15px;
     margin-top: 85px;
     color: aliceblue;
+}
+
+.restart:hover {
+    color: rgb(31, 106, 172);
+    box-shadow: 0 5px 15px rgba(7, 8, 63, 0.8);
 }
 
 /* Instructions Page */
@@ -253,4 +269,9 @@ img {
     margin-top: 18px;
     margin-left: 18px;
     color: aliceblue;
+}
+
+.backArrow:hover {
+    color: rgb(31, 106, 172);
+    box-shadow: 0 5px 15px rgba(7, 8, 63, 0.8);
 }
