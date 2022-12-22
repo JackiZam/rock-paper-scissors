@@ -19,7 +19,7 @@ const restartButton = document.querySelector('.restart');
 
 const infoButton = document.querySelector('.infoButton');
 infoButton.addEventListener('click', () => {
-    window.open("./info.html", "_self");
+    window.open("./instructions.html", "_self");
 });
 
 function getComputerChoice(choices) {
