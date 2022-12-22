@@ -154,3 +154,52 @@ img {
     flex-direction: column;
     align-items: center;
 }
+
+/* Game Over Pop Up */
+.gameOverScreen {
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    border-radius: 20px;
+    height: 450px;
+    width: 70%;
+    color: black;
+}
+
+.gameOverContent {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gameOver {
+    color: red;
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.closeButton {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    margin-top: 18px;
+    margin-left: 18px; 
+    background-color: aliceblue;
+}
+
+.restart {
+    height: 50px;
+    width: auto;
+    margin-top: 50px;
+    font-size: 30px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin-top: 115px;
+}

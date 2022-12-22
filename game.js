@@ -10,9 +10,17 @@ compWins.textContent = `${numCompWins}`;
 const userOptions = document.querySelectorAll('.userOption');
 const computerChoice = document.querySelector('.computerChoice');
 const roundResults = document.querySelector('.roundResults');
-const gameResults = document.createElement('p');
+const gameResults = document.querySelector('.gameResults');
+gameResults.style.fontSize = "x-large";
 const gameOverSection = document.querySelector('.gameOverScreen');
 const gameOverAlert = document.createElement('p');
+const closeButton = document.querySelector('.closeButton');
+const restartButton = document.querySelector('.restart');
+
+const infoButton = document.querySelector('.infoButton');
+infoButton.addEventListener('click', () => {
+    window.open("./info.html", "_self");
+});
 
 function getComputerChoice(choices) {
     let indexPos = [Math.floor(Math.random() * choices.length)];
@@ -29,31 +37,31 @@ function playRound(playerSelection) {
     }
     else if (playerSelection === 'Rock') {
         if (computerSelection === 'Paper') {
-            numCompWins++;
+            numCompWins += 1;
             roundResults.textContent = `${computerSelection} beats ${playerSelection.toLowerCase()}. You lost!`;
         }
         else {
-            numUserWins++;
+            numUserWins += 1;
             roundResults.textContent = `${playerSelection} beats ${computerSelection.toLowerCase()}. You won!`;
         }
     }
     else if (playerSelection === 'Paper') {
         if (computerSelection === 'Rock') {
-            numUserWins++;
+            numUserWins += 1;
             roundResults.textContent = `${playerSelection} beats ${computerSelection.toLowerCase()}. You won!`;
         }
         else {
-            numCompWins++;
+            numCompWins += 1;
             roundResults.textContent = `${computerSelection} beat ${playerSelection.toLowerCase()}. You lost!`;
         }
     }
     else if (playerSelection === 'Scissors') {
         if (computerSelection === 'Paper') {
-            numUserWins++;
+            numUserWins += 1;
             roundResults.textContent = `${playerSelection} beat ${computerSelection.toLowerCase()}. You won!`;
         }
         else {
-            numCompWins++;
+            numCompWins += 1;
             roundResults.textContent = `${computerSelection} beats ${playerSelection.toLowerCase()}. You lost!`;
         }
     }
@@ -68,6 +76,9 @@ function playRound(playerSelection) {
 }
 
 function playGame() {
+    numCompWins = 0;
+    numUserWins = 0;
+    gameOverSection.style.visibility = 'hidden';
     userOptions.forEach((button) => {
         button.addEventListener('click', function(e) {
             playRound(button.id);
@@ -77,18 +88,26 @@ function playGame() {
 
 
 function gameOver() {
-    gameOverAlert.textContent = "Game over";
-    document.body.appendChild(gameOverAlert);
+    gameOverSection.style.visibility = 'visible';
     if (numUserWins > numCompWins) {
         gameResults.textContent = "Congrats! You win!";
     }
     else {
         gameResults.textContent = "You lose!";
     }
-    document.body.appendChild(gameResults);
-    // put these V in a new function for when the replay button is clicked
-    // numCompWins = 0;
-    // numUserWins = 0;
+    closeButton.addEventListener('click', () => {
+        gameOverSection.style.visibility = 'hidden';
+        userOptions.forEach((button) => {
+            button.disabled = true;
+        });
+    });
+    restartButton.addEventListener('click', function(e) {
+        numCompWins = 0;
+        numUserWins = 0;
+        userWins.textContent = `${numUserWins}`;
+        compWins.textContent = `${numCompWins}`;
+        gameOverSection.style.visibility = 'hidden';
+    })
     return;
 }
 

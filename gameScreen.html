@@ -7,8 +7,8 @@
     <script src="./game.js" defer></script>
 </head>
 <body>
-    <button class="infoButton">i</button>
     <div class="gameScreen">
+        <button class="infoButton">i</button>
         <div class="top">
             <div>
                 <p class="userTitle">You</p>
@@ -20,6 +20,14 @@
             </div>
         </div>
         <p class="computerChoice"></p>
+        <div class="gameOverScreen">
+            <button class="closeButton">x</button>
+            <div class="gameOverContent">
+                <h3 class="gameOver">Game Over!</h3>
+                <p class="gameResults"></p>
+                <button class="restart">New Game</button>
+            </div>
+        </div>
         <div class="userOptions">
             <button id="Rock" class="userOption rock"></button>
             <button id="Paper" class="userOption paper"></button>
@@ -27,6 +35,5 @@
         </div>
         <p class="roundResults"></p>
     </div>
-    <div class="gameOverScreen"></div>
 </body>
 </html>
